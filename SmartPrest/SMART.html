@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPrest - Solutions Digitales Innovantes à Ouagadougou, Burkina Faso</title>
+    <meta name="description" content="SmartPrest : Marketing SMS, Community Management, Développement d'Applications, Formations et Coworking à Ouagadougou. Solutions digitales sur mesure pour entreprises.">
+    <meta name="keywords" content="smartprest, marketing digital Burkina, développement application Ouagadougou, formation informatique, coworking Kalgondé, SMS marketing, community management">
+    <meta name="author" content="SmartPrest">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="SMART.js"></script>
+    <link rel="stylesheet" href="SMART.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background: #c0392b;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* style de l'entête */
+        header {
+            background: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            z-index: 1001;
+        }
+
+        .logo-img {
+            max-height: 50px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* bannières principales */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            padding: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        /* à propos style*/
+        .about {
+            background: var(--light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Solutions Section */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .solution-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .solution-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .solution-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .solution-card:hover .solution-img img {
+            transform: scale(1.1);
+        }
+
+        .solution-content {
+            padding: 20px;
+        }
+
+        .solution-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        /* témoignages*/
+        .testimonials {
+            background: var(--light);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .testimonial-text::before {
+            top: -20px;
+            left: -10px;
+        }
+
+        .testimonial-text::after {
+            bottom: -40px;
+            right: -10px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* partenaires style - CARROUSEL */
+        .partners {
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .partners-carousel {
+            display: flex;
+            animation: scroll 60s linear infinite;
+            gap: 60px;
+            padding: 20px 0;
+        }
+
+        .partners-carousel:hover {
+            animation-play-state: paused;
+        }
+
+        .partner-logo {
+            height: 100px;
+            min-width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: grayscale(0);
+            opacity: 0.7;
+            transition: var(--transition);
+            padding: 15px;
+        }
+
+        .partner-logo:hover {
+            filter: grayscale(0);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-150px * 12 - 60px * 12));
+            }
+        }
+
+        /* Masque de dégradé pour les bords */
+        .partners::before,
+        .partners::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 200px;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .partners::before {
+            left: 0;
+            background: linear-gradient(to right, #f9f9f9, transparent);
+        }
+
+        .partners::after {
+            right: 0;
+            background: linear-gradient(to left, #f9f9f9, transparent);
+        }
+
+        /* Contact */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-top: 5px;
+            min-width: 30px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        /* Styles pour l'iframe Google Maps */
+        .map-section iframe {
+            border: none !important;
+            box-shadow: var(--shadow) !important;
+            margin-top: 20px;
+        }
+
+        /* Responsive de l'iframe */
+        @media (max-width: 768px) {
+            .map-section iframe {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .map-section iframe {
+                height: 300px;
+            }
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* pieds de page*/
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+            opacity: 0.8;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Style du boutton*/
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--secondary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+            border: none;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+
+            .partner-logo {
+                min-width: 120px;
+                height: 80px;
+            }
+
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-120px * 12 - 60px * 12));
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                box-shadow: var(--shadow);
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hero {
+                height: 80vh;
+                min-height: 500px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .logo-img {
+                max-height: 40px;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .partner-logo {
+                min-width: 100px;
+                height: 70px;
+                padding: 10px;
+            }
+
+            .partners::before,
+            .partners::after {
+                width: 100px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+
+            .service-card, .solution-card {
+                padding: 20px;
+            }
+
+            .contact-form {
+                padding: 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .container {
+                width: 95%;
+            }
+
+            .partner-logo {
+                min-width: 80px;
+                height: 60px;
+            }
+
+            .partners::before,
+            .partners::after {
+                width: 50px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .services-grid, .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- l'en-tête-->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <img src="Smartprest-logo.png" alt="SmartPrest Logo" class="logo-img">
+                </a>
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#apropos">À propos</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- boutton-->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- bannières principales -->
+    <section class="hero" id="accueil">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Solutions Digitales Innovantes pour Votre Entreprise</h1>
+                <p>SmartPrest vous accompagne dans votre transformation digitale avec des solutions sur mesure en développement logiciel, applications web et mobile, et automatisation des processus.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn">Demander un devis</a>
+                    <a href="#services" class="btn btn-accent">Découvrir nos services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Services</h2>
+                <p>Découvrez notre gamme complète de services digitaux conçus pour répondre à tous vos besoins technologiques.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sms"></i>
+                    </div>
+                    <h3>Marketing SMS</h3>
+                    <p>Campagnes SMS ciblées, automatisation et suivi des performances pour une communication directe avec vos clients.</p>
+                    <a href="SmartSms.html" class="btn">En savoir plus</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Management</h3>
+                    <p>Gestion de vos réseaux sociaux, création de contenu engageant et publicité digitale pour renforcer votre présence en ligne.</p>
+                    <a href="community magement.html" class="btn">En savoir plus</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Développement d'Applications</h3>
+                    <p>Conception et développement d'applications web et mobiles sur mesure, adaptées à vos besoins spécifiques.</p>
+                    <a href="Developpement d'applications.html" class="btn">En savoir plus</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Formation</h3>
+                    <p>Nous organisons des sessions de formations,aussi bien en groupe qu'individuel, sur diverses thématiques du digital et du marketing.</p>
+                    <a href="Formations.html" class="btn"> En savoir plus</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Coworking</h3>
+                    <p>Profitez d'un espace de travail collaboratif moderne et équipé pour favoriser l'échange et la productivité. </p>
+                    <a href="Coworking.html" class="btn"> En savoir plus</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Incubation</h3>
+                    <p>Nous soutenons les porteurs de projets en leur offrant un accompagnement structuré jusqu'à la maturation de leur entreprise.</p>
+                    <a href="Incubation.html" class="btn"> En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- A propos -->
+    <section class="section about" id="apropos">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>À propos de SmartPrest</h2>
+                    <p> SmartPrest est une entreprise informatique spécialisée dans les solutions digitales innovantes. Notre mission est d'accompagner les entreprises dans leur transformation digitale en proposant des services sur mesure qui répondent à leurs défis technologiques.</p>
+                    <p>Notre équipe d'experts passionnés combine créativité et expertise technique pour développer des solutions qui améliorent l'efficacité opérationnelle et renforcent la présence digitale de nos clients.</p>
+                    <p>Nous croyons en l'innovation continue et en l'adaptabilité pour rester à la pointe des dernières technologies et tendances du marché.</p>
+                    <a href="#contact" class="btn">Nous contacter</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Équipe SmartPrest">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="section" id="solutions">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Solutions</h2>
+                <p>Découvrez quelques-unes de nos réalisations et solutions développées pour nos clients.</p>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Solution 1">
+                    </div>
+                    <div class="solution-content">
+                        <h3>Plateforme de Gestion Commerciale</h3>
+                        <p>Solution complète pour la gestion des ventes, stocks et relations clients avec tableau de bord personnalisable.</p>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-img">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80" alt="Solution 2">
+                    </div>
+                    <div class="solution-content">
+                        <h3>SMART SMS</h3>
+                        <p>Plateforme SMS marketing pour envoyer vos offres dans le mobile de vos clients et prospects en quelques clics</p>
+                        <a href="https://smartsms.smartprest.net/" class="btn"> voir</a>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-img">
+                        <img src="https://assets.volkswagen.com/is/image/volkswagenag/IC0636_connect-smartphone-in-car?Zml0PWNyb3AsMSZmbXQ9anBnJnFsdD03OSZ3aWQ9ODAwJmhlaT01MzMmYWxpZ249MC4wMCwwLjAwJmJmYz1vZmYmZDU0Ng==" alt="Solution 3">
+                    </div>
+                    <div class="solution-content">
+                        <h3>Faso Garage</h3>
+                        <p>Solution Web et Mobile de géolocalisation Garages</p>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-img">
+                        <img src="Design sans titre.jpg" alt="solution4">
+                    </div>
+                    <div class="solution-content">
+                        <h3>Smart Tombola</h3>
+                        <p>Smart tombola, votre Plateforme de jeu SMS pour redynamiser vos ventes et booster votre chiffre d'affaires</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Temoignagnes Sections -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Témoignages Clients</h2>
+                <p>Découvrez ce que nos clients disent de notre collaboration.</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        <p>SmartPrest a révolutionné notre façon de communiquer avec nos clients grâce à leur solution de marketing SMS. Les résultats ont dépassé nos attentes avec un ROI impressionnant.</p>
+                    </div>
+                    <div class="testimonial-author">Djamila DIALLO, Directrice Marketing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- section des partenaires - CARROUSEL -->
+    <section class="section partners">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ils nous font confiance</h2>
+                <p>Nous sommes fiers de collaborer avec des entreprises de toutes tailles et de tous secteurs.</p>
+            </div>
+            <div class="partners-carousel">
+                <!-- Les logos  -->
+                <div class="partner-logo">
+                    <img src="1_20251001_170104_0000.png" alt="SNT Song Naba Trading Sarl">
+                </div>
+                <div class="partner-logo">
+                    <img src="2_20251001_170104_0001.png" alt="UNIVERS BIO-MEDICAL SA">
+                </div>
+                <div class="partner-logo">
+                    <img src="3_20251001_170104_0002.png" alt="SND Song Naba Distribution">
+                </div>
+                <div class="partner-logo">
+                    <img src="5_20251001_170104_0004.png" alt="Neemba CAT">
+                </div>
+                <div class="partner-logo">
+                    <img src="6_20251001_170105_0005.png" alt="CAT LOGISTICS">
+                </div>
+                <div class="partner-logo">
+                    <img src="7_20251001_170105_0006.png" alt="a le MOBILE">
+                </div>
+                <div class="partner-logo">
+                    <img src="8_20251001_170105_0007.png" alt="air burkina">
+                </div>
+                <div class="partner-logo">
+                    <img src="4_20251001_170104_0003.png" alt="bercam Kids">
+                </div>
+                <div class="partner-logo">
+                    <img src="9_20251001_170105_0008.png" alt="central mobile">
+                </div>
+                <div class="partner-logo">
+                    <img src="10_20251001_170105_0009.png" alt="la perle">
+                </div>
+                <div class="partner-logo">
+                    <img src="11_20251001_170106_0010.png" alt="servair Burkina">
+                </div>
+                <div class="partner-logo">
+                    <img src="12_20251001_170106_0011.png" alt="Societé Ilboudo Immobilière et foncière">
+                </div>
+                
+                <!-- Duplication des logos pour l'effet de boucle continu -->
+                <div class="partner-logo">
+                    <img src="1_20251001_170104_0000.png" alt="SNT Song Naba Trading Sarl">
+                </div>
+                <div class="partner-logo">
+                    <img src="2_20251001_170104_0001.png" alt="UNIVERS BIO-MEDICAL SA">
+                </div>
+                <div class="partner-logo">
+                    <img src="3_20251001_170104_0002.png" alt="SND Song Naba Distribution">
+                </div>
+                <div class="partner-logo">
+                    <img src="5_20251001_170104_0004.png" alt="Neemba CAT">
+                </div>
+                <div class="partner-logo">
+                    <img src="6_20251001_170105_0005.png" alt="CAT LOGISTICS">
+                </div>
+                <div class="partner-logo">
+                    <img src="7_20251001_170105_0006.png" alt="a le MOBILE">
+                </div>
+                <div class="partner-logo">
+                    <img src="8_20251001_170105_0007.png" alt="air burkina">
+                </div>
+                <div class="partner-logo">
+                    <img src="4_20251001_170104_0003.png" alt="bercam Kids">
+                </div>
+                <div class="partner-logo">
+                    <img src="9_20251001_170105_0008.png" alt="central mobile">
+                </div>
+                <div class="partner-logo">
+                    <img src="10_20251001_170105_0009.png" alt="la perle">
+                </div>
+                <div class="partner-logo">
+                    <img src="11_20251001_170106_0010.png" alt="servair Burkina">
+                </div>
+                <div class="partner-logo">
+                    <img src="12_20251001_170106_0011.png" alt="Societé Ilboudo Immobilière et foncière">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contactez-nous</h2>
+                <p>N'hésitez pas à nous contacter pour discuter de votre projet ou pour toute demande d'information.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Adresse</h3>
+                            <p>Kalgondé,10 BP 518<br>Ouagadougou, Burkina-Faso</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Téléphone</h3>
+                            <p>+226 78 08 02 50</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>contact@smartprest.net</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3>Horaires d'ouverture</h3>
+                            <p>Lun - Ven: 8h00 - 18h00</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/16QD6suv9Z/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/ouedraogo-ibrahima-6474b260?utm_source=share_via&utm_content=profile&utm_medium=member_android"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Formulaire de Contact -->
+                
+
+<div class="contact-form">
+    <h3 style="margin-bottom: 20px; color: var(--primary);">Envoyez-nous un message</h3>
+    <form action="https://formspree.io/f/xanpkgdg" method="POST">
+        <div class="form-group">
+            <label for="name">Votre Nom *</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Votre Email *</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Téléphone</label>
+            <input type="tel" id="phone" name="phone" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="service">Service concerné *</label>
+            <select id="service" name="service" class="form-control" required>
+                <option value="">Choisissez un service</option>
+                <option value="sms">Smart SMS</option>
+                <option value="community">Community Management</option>
+                <option value="developpement">Développement d'Applications</option>
+                <option value="formation">Formation</option>
+                <option value="coworking">Coworking</option>
+                <option value="incubation">Incubation</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="message">Votre Message *</label>
+            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+        </div>
+        
+        <!--  Champs  Formspree -->
+        <input type="hidden" name="_subject" value="Nouveau contact SmartPrest">
+        <input type="hidden" name="_language" value="fr">
+        <input type="text" name="_gotcha" style="display:none">
+        
+        <button type="submit" class="btn" style="width: 100%;">
+            <span class="btn-text">Envoyer le message</span>
+        </button>
+    </form>
+</div>
+    </section>
+
+    <!-- Section Google Maps - Version Iframe -->
+    <section class="section map-section" style="padding: 4rem 0 0 0;">
+        <div class="container">
+            <div class="section-title">
+                <div class="service-icon">
+                    <i class="fas fa-map"></i>
+                </div>
+                <h2>Nous Trouver</h2>
+                <p>Venez nous rencontrer dans nos locaux à Kalgondé, Ouagadougou</p>
+            </div>
+        </div>
+        
+        <!-- Carte Google Maps en Iframe -->
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15797.747055107795!2d-1.5197!3d12.3714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDIyJzE3LjAiTiAxwrAzMScxMC45Ilc!5e0!3m2!1sfr!2sbf!4v1690000000000!5m2!1sfr!2sbf"
+            width="100%" 
+            height="400" 
+            style="border:0; border-radius: 0 0 8px 8px;" 
+            allowfullscreen 
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localisation de SmartPrest à Ouagadougou">
+        </iframe>
+    </section>
+
+    <!-- pied de page-->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>SmartPrest</h3>
+                    <p>Votre partenaire de confiance pour toutes vos solutions digitales. Innovation, qualité et satisfaction client sont au cœur de notre approche.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/16QD6suv9Z/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/ouedraogo-ibrahima-6474b260?utm_source=share_via&utm_content=profile&utm_medium=member_android"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Liens rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#apropos">À propos</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#solutions">Solutions</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Nos services</h3>
+                    <ul class="footer-links">
+                        <li><a href="SmartSms.html">Marketing SMS</a></li>
+                        <li><a href="community magement.html">Community Management</a></li>
+                        <li><a href="Developpement d'applications.html">Développement d'applications</a></li>
+                        <li><a href="Formations.html"> Formations</a></li>
+                        <li><a href="Coworking.html">Coworking</a></li>
+                        <li><a href="Incubation.html">incubation</a></li>
+                        <li><a href="#">Solutions digitales</a></li>
+                        <li><a href="#">Automatisation des tâches</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Kalgondé,10 BP 518 Ouagadougou, Burkina-Faso</li>
+                        <li><i class="fas fa-phone"></i> +226 78 08 02 50</li>
+                        <li><i class="fas fa-envelope"></i> contact@smartprest.net</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 SmartPrest. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.querySelector('i').classList.toggle('fa-bars');
+            menuToggle.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // soumission du formulaire
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('.btn-text');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Envoi en cours...';
+            this.querySelector('.btn').disabled = true;
+            
+            // Simulation d'envoi
+            setTimeout(() => {
+                alert('Merci pour votre message! Nous vous contacterons bientôt.');
+                this.reset();
+                submitBtn.textContent = originalText;
+                this.querySelector('.btn').disabled = false;
+            }, 1500);
+        });
+
+        // arrière plan de l'en-tête
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            const backToTop = document.getElementById('backToTop');
+            
+            if(window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+                backToTop.classList.add('show');
+            } else {
+                header.style.background = 'white';
+                header.style.backdropFilter = 'none';
+                backToTop.classList.remove('show');
+            }
+        });
+
+        // retour des fonctionalités
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // etat de chargement 
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if(this.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    const originalText = this.textContent;
+                    this.innerHTML = '<span class="loading"></span>Chargement...';
+                    
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                    }, 2000);
+                }
+            });
+        });
+
+        // Carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.partners-carousel');
+            
+            // Pause on hover
+            carousel.addEventListener('mouseenter', () => {
+                carousel.style.animationPlayState = 'paused';
+            });
+            
+            carousel.addEventListener('mouseleave', () => {
+                carousel.style.animationPlayState = 'running';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Incubation d'Entreprises | SmartPrest - Accompagnement Startups Burkina</title>
+<meta name="description" content="Programme d'incubation pour startups et porteurs de projets au Burkina Faso. Accompagnement, mentorat, networking et accès au financement.">
+<meta name="keywords" content="incubation Burkina, startup Ouagadougou, accompagnement entrepreneur, création entreprise, financement projet, mentorat business">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            text-align: left;
+        }
+
+        .logo {
+            height: 70px;
+            width: auto;
+        }
+
+        /* Carrousel */
+        .carousel {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-slides {
+            height: 100%;
+            position: relative;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        /* partie 1 - Incubation Startup */
+        .slide-incubation {
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+        }
+
+        /* partie 2 - Accompagnement */
+        .slide-accompagnement {
+            background: linear-gradient(135deg, #5ee7df, #b490ca);
+        }
+
+        /* partie 3 - Financement */
+        .slide-financement {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        /* partie 4 - Réseau */
+        .slide-reseau {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+
+        .slide-content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            max-width: 800px;
+            margin: 2rem;
+            text-align: center;
+        }
+
+        .slide-incubation .slide-content {
+            border: 3px solid #ff6b6b;
+        }
+
+        .slide-accompagnement .slide-content {
+            border: 3px solid #5ee7df;
+        }
+
+        .slide-financement .slide-content {
+            border: 3px solid #667eea;
+        }
+
+        .slide-reseau .slide-content {
+            border: 3px solid #f093fb;
+        }
+
+        .carousel h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .slide-incubation h1 {
+            color: #ff6b6b;
+        }
+
+        .slide-accompagnement h1 {
+            color: #5ee7df;
+        }
+
+        .slide-financement h1 {
+            color: #667eea;
+        }
+
+        .slide-reseau h1 {
+            color: #f093fb;
+        }
+
+        .carousel h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: #2d3436;
+        }
+
+        .carousel p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .highlight-box {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .slide-incubation .highlight-box {
+            background: #ff6b6b;
+        }
+
+        .slide-accompagnement .highlight-box {
+            background: #5ee7df;
+            color: #2d3436;
+        }
+
+        .slide-financement .highlight-box {
+            background: #667eea;
+        }
+
+        .slide-reseau .highlight-box {
+            background: #f093fb;
+        }
+
+        /* Contrôles du carrousel */
+        .carousel-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            z-index: 100;
+        }
+
+        .carousel-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #ff6b6b;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .carousel-btn:hover {
+            background: #ff6b6b;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .carousel-indicators {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        /* Indicateur de défilement */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: white;
+            z-index: 100;
+        }
+
+        .scroll-arrow {
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            color: white;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Sections de contenu */
+        .content-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .services {
+            background: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-card.incubation-1:hover {
+            border-color: #ff6b6b;
+        }
+
+        .service-card.incubation-2:hover {
+            border-color: #5ee7df;
+        }
+
+        .service-card.incubation-3:hover {
+            border-color: #667eea;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card.incubation-1 .service-icon {
+            color: #ff6b6b;
+        }
+
+        .service-card.incubation-2 .service-icon {
+            color: #5ee7df;
+        }
+
+        .service-card.incubation-3 .service-icon {
+            color: #667eea;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .service-card.incubation-1 h3 {
+            color: #ff6b6b;
+        }
+
+        .service-card.incubation-2 h3 {
+            color: #5ee7df;
+        }
+
+        .service-card.incubation-3 h3 {
+            color: #667eea;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Processus Section */
+        .processus {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .processus-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .processus-step {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+        }
+
+        .processus-step h3 {
+            color: #2d3436;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .processus-step p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Avantages Section */
+        .avantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .avantage-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .avantage-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* Statistiques Section */
+        .statistiques {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-text {
+            color: #666;
+            font-weight: 600;
+        }
+
+        /* Programme Section */
+        .programme-details {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .programme-phase {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .programme-phase:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .phase-title {
+            color: #ff6b6b;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .phase-duree {
+            background: #ff6b6b;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #ff6b6b, #667eea);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin: 2rem;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .carousel h1 {
+                font-size: 2rem;
+            }
+            
+            .carousel h2 {
+                font-size: 1.3rem;
+            }
+            
+            .slide-content {
+                padding: 2rem;
+                margin: 1rem;
+            }
+            
+            .carousel-controls {
+                bottom: 20px;
+                gap: 1rem;
+            }
+            
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .processus-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .avantages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Animation d'apparition */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="Smartprest-logo.png" alt="SmartPrest Logo" class="logo">
+        </div>
+    </header>
+
+    <!-- Carrousel Hero -->
+    <section class="carousel">
+        <div class="carousel-slides">
+            <!-- Slide 1 - Incubation Startup -->
+            <div class="carousel-slide slide-incubation active">
+                <div class="slide-content">
+                    <h1>INCUBATION STARTUP</h1>
+                    <h2>DONNEZ VIE À VOS IDÉES</h2>
+                    <p>Notre programme d'incubation accompagne les startups innovantes de l'idée à la croissance, avec un soutien complet et personnalisé.</p>
+                    <div class="highlight-box">
+                        <strong>Accompagnement expert • Financement • Réseau</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!--  - Accompagnement -->
+            <div class="carousel-slide slide-accompagnement">
+                <div class="slide-content">
+                    <h1>ACCOMPAGNEMENT SUR MESURE</h1>
+                    <h2>MENTORAT EXPERT ET STRATÉGIQUE</h2>
+                    <p>Bénéficiez de l'expertise de nos mentors et de notre réseau pour développer votre startup avec les meilleures pratiques.</p>
+                    <div class="highlight-box">
+                        <strong>Mentors experts • Stratégie business • Suivi personnalisé</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- - Financement -->
+            <div class="carousel-slide slide-financement">
+                <div class="slide-content">
+                    <h1>ACCÈS AU FINANCEMENT</h1>
+                    <h2>LEVIER DE CROISSANCE</h2>
+                    <p>Nous vous aidons à préparer votre levée de fonds et vous connectons avec notre réseau d'investisseurs partenaires.</p>
+                    <div class="highlight-box">
+                        <strong>Préparation fundraising • Réseau investisseurs • Subventions</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!---- Réseau -->
+            <div class="carousel-slide slide-reseau">
+                <div class="slide-content">
+                    <h1>RÉSEAU STRATÉGIQUE</h1>
+                    <h2>CONNECTIONS QUI COMPTENT</h2>
+                    <p>Intégrez notre écosystème dynamique et accédez à un réseau de partenaires, clients et experts incontournables.</p>
+                    <div class="highlight-box">
+                        <strong>Partenariats • Clients potentiels • Experts sectoriels</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Indicateur de défilement -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <p>Découvrez notre programme</p>
+        </div>
+
+        <!-- Contrôles du carrousel -->
+        <div class="carousel-controls">
+            <button class="carousel-btn prev-btn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <div class="carousel-indicators">
+                <div class="indicator active" data-slide="0"></div>
+                <div class="indicator" data-slide="1"></div>
+                <div class="indicator" data-slide="2"></div>
+                <div class="indicator" data-slide="3"></div>
+            </div>
+            
+            <button class="carousel-btn next-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="content-section services">
+        <div class="fade-in">
+            <h2 style="text-align: center; color: #ff6b6b; font-size: 2.5rem; margin-bottom: 1rem;">Notre Programme d'Incubation</h2>
+            <p style="text-align: center; color: #666; font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem;">
+                Un accompagnement complet pour transformer votre idée en entreprise prospère
+            </p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card incubation-1 fade-in">
+                <i class="fas fa-seedling service-icon"></i>
+                <h3>Phase de Pré-incubation</h3>
+                <p>Validez votre idée et construisez les fondations solides de votre startup avec notre soutien.</p>
+                <ul style="text-align: left; margin-top: 1rem; color: #666;">
+                    <li>Validation du business model</li>
+                    <li>Étude de marché approfondie</li>
+                    <li>Prototypage et tests</li>
+                    <li>Préparation du pitch</li>
+                    <li>Stratégie de lancement</li>
+                </ul>
+            </div>
+            
+            <div class="service-card incubation-2 fade-in">
+                <i class="fas fa-rocket service-icon"></i>
+                <h3>Phase d'Incubation</h3>
+                <p>Lancez votre startup avec un accompagnement intensif et des ressources dédiées.</p>
+                <ul style="text-align: left; margin-top: 1rem; color: #666;">
+                    <li>Accompagnement quotidien</li>
+                    <li>Accès aux financements</li>
+                    <li>Espace de travail dédié</li>
+                    <li>Mentorat expert</li>
+                    <li>Réseau de partenaires</li>
+                </ul>
+            </div>
+            
+            <div class="service-card incubation-3 fade-in">
+                <i class="fas fa-chart-line service-icon"></i>
+                <h3>Phase d'Accélération</h3>
+                <p>Scalez votre entreprise et préparez-vous à la levée de fonds et à l'expansion.</p>
+                <ul style="text-align: left; margin-top: 1rem; color: #666;">
+                    <li>Préparation fundraising</li>
+                    <li>Stratégie de croissance</li>
+                    <li>Internationalisation</li>
+                    <li>Recrutement d'équipe</li>
+                    <li>Scale-up opérationnel</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Processus Section -->
+    <section class="content-section processus">
+        <div class="fade-in">
+            <h2 style="color: #2d3436; font-size: 2.5rem; margin-bottom: 1rem;">Notre Processus d'Incubation</h2>
+            <p style="color: #666; font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem;">
+                Un parcours structuré en 5 étapes clés pour maximiser vos chances de succès
+            </p>
+        </div>
+        
+        <div class="processus-steps">
+            <div class="processus-step fade-in">
+                <div class="step-number">1</div>
+                <h3>Sélection & Admission</h3>
+                <p>Évaluation de votre projet et intégration dans notre programme après validation du comité de sélection.</p>
+            </div>
+            
+            <div class="processus-step fade-in">
+                <div class="step-number">2</div>
+                <h3>Diagnostic & Roadmap</h3>
+                <p>Analyse approfondie de votre startup et définition d'un plan d'action personnalisé.</p>
+            </div>
+            
+            <div class="processus-step fade-in">
+                <div class="step-number">3</div>
+                <h3>Accompagnement Intensif</h3>
+                <p>Mentorat quotidien, ateliers pratiques et mise en œuvre de votre stratégie.</p>
+            </div>
+            
+            <div class="processus-step fade-in">
+                <div class="step-number">4</div>
+                <h3>Préparation Financement</h3>
+                <p>Structuration financière et préparation aux rendez-vous investisseurs.</p>
+            </div>
+            
+            <div class="processus-step fade-in">
+                <div class="step-number">5</div>
+                <h3>Lancement & Suivi</h3>
+                <p>Lancement officiel et accompagnement post-incubation pour assurer votre croissance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avantages Section -->
+    <section class="content-section">
+        <div class="fade-in">
+            <h2 style="text-align: center; color: #ff6b6b; font-size: 2.5rem; margin-bottom: 2rem;">Ce Que Nous Vous Offrons</h2>
+        </div>
+        <div class="avantages-grid">
+            <div class="avantage-item fade-in">
+                <div class="avantage-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h3>Mentorat Expert</h3>
+                <p>Accès à notre réseau de mentors entrepreneurs et experts sectoriels.</p>
+            </div>
+            <div class="avantage-item fade-in">
+                <div class="avantage-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <h3>Accès Financement</h3>
+                <p>Préparation et introduction auprès de notre réseau d'investisseurs.</p>
+            </div>
+            <div class="avantage-item fade-in">
+                <div class="avantage-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Espace de Travail</h3>
+                <p>Accès gratuit à nos espaces de coworking et salles de réunion.</p>
+            </div>
+            <div class="avantage-item fade-in">
+                <div class="avantage-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h3>Réseau Stratégique</h3>
+                <p>Connexions avec partenaires, clients et fournisseurs clés.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistiques Section -->
+    <section class="content-section services">
+        <div class="fade-in">
+            <h2 style="text-align: center; color: #ff6b6b; font-size: 2.5rem; margin-bottom: 2rem;">Notre Impact</h2>
+        </div>
+        <div class="statistiques">
+            <div class="stat-item fade-in">
+                <div class="stat-number">30+</div>
+                <div class="stat-text">Startups Incubées</div>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="stat-number">5M+</div>
+                <div class="stat-text">FCFA Levés</div>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="stat-number">75%</div>
+                <div class="stat-text">Taux de Survie</div>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="stat-number">150+</div>
+                <div class="stat-text">Emplois Créés</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programme Détaillé -->
+    <section class="content-section">
+        <div class="fade-in">
+            <h2 style="text-align: center; color: #ff6b6b; font-size: 2.5rem; margin-bottom: 2rem;">Programme Détaillé</h2>
+        </div>
+        <div class="programme-details fade-in">
+            <div class="programme-phase">
+                <div class="phase-title">Phase 1 : Pré-incubation (2 mois)</div>
+                <div class="phase-duree">Durée : 2 mois</div>
+                <p>Validation du concept, étude de marché, construction du business model, prototypage et préparation du pitch.</p>
+            </div>
+            
+            <div class="programme-phase">
+                <div class="phase-title">Phase 2 : Incubation Intensive (6 mois)</div>
+                <div class="phase-duree">Durée : 6 mois</div>
+                <p>Accompagnement quotidien, développement du produit, acquisition des premiers clients, structuration de l'équipe.</p>
+            </div>
+            
+            <div class="programme-phase">
+                <div class="phase-title">Phase 3 : Accélération (4 mois)</div>
+                <div class="phase-duree">Durée : 4 mois</div>
+                <p>Scale-up opérationnel, préparation à la levée de fonds, stratégie de croissance et internationalisation.</p>
+            </div>
+            
+            <div class="programme-phase">
+                <div class="phase-title">Phase 4 : Post-incubation (12 mois)</div>
+                <div class="phase-duree">Durée : 12 mois</div>
+                <p>Accompagnement continu, accès au réseau, suivi des performances et support stratégique.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta fade-in">
+        <h2>Prêt à lancer votre startup ?</h2>
+        <p>Postulez à notre programme d'incubation et transformez votre idée en succès</p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+226 78 08 02 50</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+226 67 45 13 73</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+226 73 38 86 90</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>contact@smartprest.net</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-globe"></i>
+                <span>http://smartprest.net/</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        class Carousel {
+            constructor() {
+                this.slides = document.querySelectorAll('.carousel-slide');
+                this.indicators = document.querySelectorAll('.indicator');
+                this.prevBtn = document.querySelector('.prev-btn');
+                this.nextBtn = document.querySelector('.next-btn');
+                this.currentSlide = 0;
+                this.autoPlayInterval = null;
+                this.autoPlayDelay = 5000;
+
+                this.init();
+            }
+
+            init() {
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => this.goToSlide(index));
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') this.prevSlide();
+                    if (e.key === 'ArrowRight') this.nextSlide();
+                });
+
+                this.startAutoPlay();
+
+                const carousel = document.querySelector('.carousel');
+                carousel.addEventListener('mouseenter', () => this.stopAutoPlay());
+                carousel.addEventListener('mouseleave', () => this.startAutoPlay());
+
+                document.querySelector('.scroll-indicator').addEventListener('click', () => {
+                    document.querySelector('.services').scrollIntoView({ 
+                        behavior: 'smooth' 
+                    });
+                });
+            }
+
+            showSlide(index) {
+                this.slides.forEach(slide => slide.classList.remove('active'));
+                this.indicators.forEach(indicator => indicator.classList.remove('active'));
+
+                this.slides[index].classList.add('active');
+                this.indicators[index].classList.add('active');
+                this.currentSlide = index;
+            }
+
+            nextSlide() {
+                const next = (this.currentSlide + 1) % this.slides.length;
+                this.showSlide(next);
+            }
+
+            prevSlide() {
+                const prev = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+                this.showSlide(prev);
+            }
+
+            goToSlide(index) {
+                this.showSlide(index);
+            }
+
+            startAutoPlay() {
+                this.stopAutoPlay();
+                this.autoPlayInterval = setInterval(() => this.nextSlide(), this.autoPlayDelay);
+            }
+
+            stopAutoPlay() {
+                if (this.autoPlayInterval) {
+                    clearInterval(this.autoPlayInterval);
+                    this.autoPlayInterval = null;
+                }
+            }
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            new Carousel();
+
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { 
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>

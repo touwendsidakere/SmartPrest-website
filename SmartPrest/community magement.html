@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community Management à Ouagadougou | Gestion Réseaux Sociaux - SmartPrest</title>
+<meta name="description" content="Gestion professionnelle de vos réseaux sociaux Facebook, Instagram, LinkedIn. Création de contenu, publicité digitale et stratégie social media par SmartPrest.">
+<meta name="keywords" content="community management Burkina, gestion réseaux sociaux Ouagadougou, social media marketing, Facebook Instagram, publicité digitale, contenu digital">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            text-align: left;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        /* Carrousel */
+        .carousel {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-slides {
+            height: 100%;
+            position: relative;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        /* Slide 1 - Affiche Community Management */
+        .slide-affiche-cm {
+            background: 
+                linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                url('WhatsApp Image 2025-10-17 à 07.55.55_7e96e338.jpg') center/cover;
+        }
+
+        /* Slide 2 - Boostez votre présence */
+        .slide-presence {
+            background: linear-gradient(135deg, #00b894, #00a085);
+        }
+
+        /* Slide 3 - Engagement communautaire */
+        .slide-engagement {
+            background: linear-gradient(135deg, #0984e3, #074b7c);
+        }
+
+        /* Slide 4 - Stratégie réseaux sociaux */
+        .slide-strategie {
+            background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+        }
+
+        .slide-content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            max-width: 800px;
+            margin: 2rem;
+            text-align: center;
+        }
+
+        .slide-affiche-cm .slide-content {
+            background: rgba(255, 255, 255, 0.98);
+            border: 3px solid #00b894;
+        }
+
+        .slide-presence .slide-content {
+            background: rgba(255, 255, 255, 0.98);
+            border: 3px solid #00b894;
+        }
+
+        .slide-engagement .slide-content {
+            background: rgba(255, 255, 255, 0.98);
+            border: 3px solid #0984e3;
+        }
+
+        .slide-strategie .slide-content {
+            background: rgba(255, 255, 255, 0.98);
+            border: 3px solid #6c5ce7;
+        }
+
+        .carousel h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .slide-affiche-cm h1 {
+            color: #00b894;
+        }
+
+        .slide-presence h1 {
+            color: #00b894;
+        }
+
+        .slide-engagement h1 {
+            color: #0984e3;
+        }
+
+        .slide-strategie h1 {
+            color: #6c5ce7;
+        }
+
+        .carousel h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .slide-affiche-cm h2 {
+            color: #2d3436;
+        }
+
+        .slide-presence h2 {
+            color: #2d3436;
+        }
+
+        .slide-engagement h2 {
+            color: #2d3436;
+        }
+
+        .slide-strategie h2 {
+            color: #2d3436;
+        }
+
+        .carousel p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .highlight-box {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            font-weight: bold;
+        }
+
+        .slide-affiche-cm .highlight-box {
+            background: #00b894;
+            color: white;
+        }
+
+        .slide-presence .highlight-box {
+            background: #00b894;
+            color: white;
+        }
+
+        .slide-engagement .highlight-box {
+            background: #0984e3;
+            color: white;
+        }
+
+        .slide-strategie .highlight-box {
+            background: #6c5ce7;
+            color: white;
+        }
+
+        /* Contrôles du carrousel */
+        .carousel-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            z-index: 100;
+        }
+
+        .carousel-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #00b894;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .carousel-btn:hover {
+            background: #00b894;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .carousel-indicators {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        /* Indicateur de défilement */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: white;
+            z-index: 100;
+        }
+
+        .scroll-arrow {
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            color: white;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Sections de contenu */
+        .content-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .services {
+            background: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-card.cm-1:hover {
+            border-color: #00b894;
+        }
+
+        .service-card.cm-2:hover {
+            border-color: #0984e3;
+        }
+
+        .service-card.cm-3:hover {
+            border-color: #6c5ce7;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card.cm-1 .service-icon {
+            color: #00b894;
+        }
+
+        .service-card.cm-2 .service-icon {
+            color: #0984e3;
+        }
+
+        .service-card.cm-3 .service-icon {
+            color: #6c5ce7;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .service-card.cm-1 h3 {
+            color: #00b894;
+        }
+
+        .service-card.cm-2 h3 {
+            color: #0984e3;
+        }
+
+        .service-card.cm-3 h3 {
+            color: #6c5ce7;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Plateformes Section */
+        .platforms {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .platform-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .platform-item:hover {
+            transform: scale(1.1);
+        }
+
+        .platform-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .fa-facebook { color: #1877f2; }
+        .fa-instagram { color: #e4405f; }
+        .fa-twitter { color: #1da1f2; }
+        .fa-linkedin { color: #0a66c2; }
+        .fa-tiktok { color: #000000; }
+        .fa-youtube { color: #ff0000; }
+
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #00b894, #0984e3);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin: 2rem;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .carousel h1 {
+                font-size: 2rem;
+            }
+            
+            .carousel h2 {
+                font-size: 1.3rem;
+            }
+            
+            .slide-content {
+                padding: 2rem;
+                margin: 1rem;
+            }
+            
+            .carousel-controls {
+                bottom: 20px;
+                gap: 1rem;
+            }
+            
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .platforms-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Animation d'apparition */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="Smartprest-logo.png" alt="SmartPrest Logo" class="logo">
+        </div>
+    </header>
+
+    <!-- Carrousel Hero -->
+    <section class="carousel">
+        <div class="carousel-slides">
+            <!-- Slide 1 - Affiche Community Management -->
+            <div class="carousel-slide slide-affiche-cm active">
+                <div class="slide-content">
+                    <h1>COMMUNITY MANAGEMENT</h1>
+                    <h2>DONNEZ VIE À VOTRE PRÉSENCE EN LIGNE</h2>
+                    <p>Créez, animez et développez votre communauté sur les réseaux sociaux avec une stratégie sur mesure.</p>
+                    <div class="highlight-box">
+                        <strong>Engagement ✓ Visibilité ✓ Croissance ✓</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 - Boostez votre présence -->
+            <div class="carousel-slide slide-presence">
+                <div class="slide-content">
+                    <h1>BOOSTEZ VOTRE PRÉSENCE</h1>
+                    <h2>VISIBILITÉ MAXIMALE SUR LES RÉSEAUX</h2>
+                    <p>Augmentez votre portée et votre notoriété grâce à une stratégie de contenu optimisée pour chaque plateforme.</p>
+                    <div class="highlight-box">
+                        <strong>+300% de portée en moyenne</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 - Engagement communautaire -->
+            <div class="carousel-slide slide-engagement">
+                <div class="slide-content">
+                    <h1>ENGAGEMENT COMMUNAUTAIRE</h1>
+                    <h2>CRÉEZ DU LIEN AVEC VOTRE AUDIENCE</h2>
+                    <p>Transformez vos followers en ambassadeurs de marque grâce à une animation quotidienne et personnalisée.</p>
+                    <div class="highlight-box">
+                        <strong>Taux d'engagement multiplié par 5</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4 - Stratégie réseaux sociaux -->
+            <div class="carousel-slide slide-strategie">
+                <div class="slide-content">
+                    <h1>STRATÉGIE RÉSEAUX SOCIAUX</h1>
+                    <h2>PLANIFICATION ET ANALYSE</h2>
+                    <p>Une approche data-driven pour maximiser votre ROI et atteindre vos objectifs business.</p>
+                    <div class="highlight-box">
+                        <strong>Rapports détaillés mensuels</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Indicateur de défilement -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <p>Découvrez nos services</p>
+        </div>
+
+        <!-- Contrôles du carrousel -->
+        <div class="carousel-controls">
+            <button class="carousel-btn prev-btn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <div class="carousel-indicators">
+                <div class="indicator active" data-slide="0"></div>
+                <div class="indicator" data-slide="1"></div>
+                <div class="indicator" data-slide="2"></div>
+                <div class="indicator" data-slide="3"></div>
+            </div>
+            
+            <button class="carousel-btn next-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="content-section services">
+        <div class="fade-in">
+            <h2 style="text-align: center; color: #00b894; font-size: 2.5rem; margin-bottom: 1rem;">Nos Services Community Management</h2>
+            <p style="text-align: center; color: #666; font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem;">
+                Une approche complète pour développer votre présence sur les réseaux sociaux
+            </p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card cm-1 fade-in">
+                <i class="fas fa-chart-line service-icon"></i>
+                <h3>Stratégie Social Media</h3>
+                <p>Définition d'une stratégie réseaux sociaux sur mesure avec objectifs mesurables, planning éditorial et analyse de la concurrence.</p>
+                <ul style="text-align: left; margin-top: 1rem; color: #666;">
+                    <li>Audit de présence en ligne</li>
+                    <li>Définition des personas</li>
+                    <li>Planning éditorial</li>
+                    <li>Benchmark concurrentiel</li>
+                </ul>
+            </div>
+            
+            <div class="service-card cm-2 fade-in">
+                <i class="fas fa-users service-icon"></i>
+                <h3>Animation Communautaire</h3>
+                <p>Animation quotidienne de vos réseaux sociaux, modération, réponse aux commentaires et création d'engagement.</p>
+                <ul style="text-align: left; margin-top: 1rem; color: #666;">
+                    <li>Publication quotidienne</li>
+                    <li>Réponse aux messages</li>
+                    <li>Modération des commentaires</li>
+                    <li>Création d'engagement</li>
+                </ul>
+            </div>
+            
+            <div class="service-card cm-3 fade-in">
+                <i class="fas fa-rocket service-icon"></i>
+                <h3>Création de Contenu</h3>
+                <p>Production de contenu visuel et rédactionnel engageant : photos, vidéos, stories, reels adaptés à chaque plateforme.</p>
+                <ul style="text-align: left; margin-top: 1rem; color: #666;">
+                    <li>Photos et vidéos professionnelles</li>
+                    <li>Rédaction de posts engageants</li>
+                    <li>Stories et Reels</li>
+                    <li>Chartes graphiques</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plateformes Section -->
+    <section class="content-section platforms">
+        <div class="fade-in">
+            <h2 style="color: #2d3436; font-size: 2.5rem; margin-bottom: 1rem;">Nous Gérons Vos Réseaux</h2>
+            <p style="color: #666; font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem;">
+                Sur toutes les plateformes sociales où votre audience vous attend
+            </p>
+        </div>
+        
+        <div class="platforms-grid">
+            <div class="platform-item fade-in">
+                <i class="fab fa-facebook platform-icon"></i>
+                <h4>Facebook</h4>
+            </div>
+            <div class="platform-item fade-in">
+                <i class="fab fa-instagram platform-icon"></i>
+                <h4>Instagram</h4>
+            </div>
+            <div class="platform-item fade-in">
+                <i class="fab fa-twitter platform-icon"></i>
+                <h4>Twitter</h4>
+            </div>
+            <div class="platform-item fade-in">
+                <i class="fab fa-linkedin platform-icon"></i>
+                <h4>LinkedIn</h4>
+            </div>
+            <div class="platform-item fade-in">
+                <i class="fab fa-tiktok platform-icon"></i>
+                <h4>TikTok</h4>
+            </div>
+            <div class="platform-item fade-in">
+                <i class="fab fa-youtube platform-icon"></i>
+                <h4>YouTube</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta fade-in">
+        <h2>Prêt à développer votre communauté ?</h2>
+        <p>Contactez-nous pour une audit gratuit de votre présence en ligne</p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+226 78 08 02 50</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+226 67 45 13 73</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+226 73 38 86 90</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>contact@smartprest.net</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-globe"></i>
+                <span>http://smartprest.net/</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        class Carousel {
+            constructor() {
+                this.slides = document.querySelectorAll('.carousel-slide');
+                this.indicators = document.querySelectorAll('.indicator');
+                this.prevBtn = document.querySelector('.prev-btn');
+                this.nextBtn = document.querySelector('.next-btn');
+                this.currentSlide = 0;
+                this.autoPlayInterval = null;
+                this.autoPlayDelay = 5000; // 5 secondes
+
+                this.init();
+            }
+
+            init() {
+                // Événements boutons
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+
+                // Événements indicateurs
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => this.goToSlide(index));
+                });
+
+                // Navigation clavier
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') this.prevSlide();
+                    if (e.key === 'ArrowRight') this.nextSlide();
+                });
+
+                // Défilement automatique
+                this.startAutoPlay();
+
+                // Pause auto-play au survol
+                const carousel = document.querySelector('.carousel');
+                carousel.addEventListener('mouseenter', () => this.stopAutoPlay());
+                carousel.addEventListener('mouseleave', () => this.startAutoPlay());
+
+                // Indicateur de défilement
+                document.querySelector('.scroll-indicator').addEventListener('click', () => {
+                    document.querySelector('.services').scrollIntoView({ 
+                        behavior: 'smooth' 
+                    });
+                });
+            }
+
+            showSlide(index) {
+                // Masquer toutes les slides
+                this.slides.forEach(slide => slide.classList.remove('active'));
+                this.indicators.forEach(indicator => indicator.classList.remove('active'));
+
+                // Afficher la slide courante
+                this.slides[index].classList.add('active');
+                this.indicators[index].classList.add('active');
+                this.currentSlide = index;
+            }
+
+            nextSlide() {
+                const next = (this.currentSlide + 1) % this.slides.length;
+                this.showSlide(next);
+            }
+
+            prevSlide() {
+                const prev = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+                this.showSlide(prev);
+            }
+
+            goToSlide(index) {
+                this.showSlide(index);
+            }
+
+            startAutoPlay() {
+                this.stopAutoPlay();
+                this.autoPlayInterval = setInterval(() => this.nextSlide(), this.autoPlayDelay);
+            }
+
+            stopAutoPlay() {
+                if (this.autoPlayInterval) {
+                    clearInterval(this.autoPlayInterval);
+                    this.autoPlayInterval = null;
+                }
+            }
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carrousel
+            new Carousel();
+
+            // Animation au défilement
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { 
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
